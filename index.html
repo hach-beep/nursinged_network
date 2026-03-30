@@ -143,6 +143,28 @@
         </section>
 
     </main>
+<!-- Firebase Connection -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+  // 1. YOUR FIREBASE CONFIG (Paste the code from Firebase Console here)
+  const firebaseConfig = {
+  apiKey: "AIzaSyAtVtGxnJK1SM2Qz7uJVHduEclWu2KtBWU",
+  authDomain: "nursinged-network.firebaseapp.com",
+  projectId: "nursinged-network",
+  storageBucket: "nursinged-network.firebasestorage.app",
+  messagingSenderId: "484119290839",
+  appId: "1:484119290839:web:1e56aadb970df919426192",
+  measurementId: "G-GC7737EJEY"
+};
+    
+
+  // 2. Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  console.log("NursingEd.Network connected to Firebase!");
+</script>
 </body>
 </html>
