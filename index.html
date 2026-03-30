@@ -133,7 +133,13 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    const firebaseConfig = { /* YOUR CONFIG */ };
+    const firebaseConfig = {apiKey: "AIzaSyAtVtGxnJK1SM2Qz7uJVHduEclWu2KtBWU",
+  authDomain: "nursinged-network.firebaseapp.com",
+  projectId: "nursinged-network",
+  storageBucket: "nursinged-network.firebasestorage.app",
+  messagingSenderId: "484119290839",
+  appId: "1:484119290839:web:1e56aadb970df919426192",
+  measurementId: "G-GC7737EJEY" };
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
