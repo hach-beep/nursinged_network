@@ -1,134 +1,86 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <!-- Mobile App Settings -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#2563eb">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NursingEd.Network | منصة تمريض</title>
+    
+    <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
-    <title>Nursing Academy | Student Portal</title>
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .stage-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        body { background-color: #f8fafc; font-family: 'Cairo', sans-serif; }
+        .stage-card:hover { transform: translateY(-5px); transition: 0.3s; }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="bg-white border-b border-gray-100 p-4 flex justify-between items-center sticky top-0 z-50">
-        <div class="flex items-center space-x-2">
-            <div class="bg-blue-600 p-2 rounded-lg text-white">
-                <i class="fas fa-heartbeat"></i>
-            </div>
-            <span class="text-xl font-bold text-gray-800">NursePath</span>
+    <nav class="bg-white border-b p-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-reverse space-x-3">
+            <div class="bg-blue-600 p-2 rounded-lg text-white"><i class="fas fa-heartbeat"></i></div>
+            <span class="text-xl font-bold text-blue-900">NursingEd.Network</span>
         </div>
-        <div class="hidden md:flex space-x-8 text-gray-600 font-medium">
-            <a href="#" class="hover:text-blue-600">Dashboard</a>
-            <a href="#" class="hover:text-blue-600">Question Bank</a>
-            <a href="#" class="hover:text-blue-600">Resources</a>
-        </div>
-        <div class="flex items-center space-x-4">
-            <span class="text-sm font-semibold text-gray-500">John Doe</span>
-            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">JD</div>
-        </div>
+        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">أ ك</div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-10">
+    <main class="max-w-7xl mx-auto px-4 py-8">
         
-        <!-- Welcome Section -->
-        <header class="mb-10">
-            <h1 class="text-3xl font-bold text-gray-900">Welcome back, Future Nurse! 👋</h1>
-            <p class="text-gray-500 mt-2">Select your current stage to continue your lectures and practice questions.</p>
-        </header>
-
-        <!-- Stage Selection Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <!-- Stage 1 -->
-            <div class="stage-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 text-xl">
-                    <i class="fas fa-book-medical"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800">Stage One</h3>
-                <p class="text-sm text-gray-500 mb-4">Foundations of Nursing, Anatomy, & Physiology.</p>
-                <div class="w-full bg-gray-100 h-2 rounded-full">
-                    <div class="bg-blue-500 h-2 rounded-full w-3/4"></div>
-                </div>
-                <p class="text-xs mt-2 text-gray-400">75% Completed</p>
-            </div>
-
-            <!-- Stage 2 -->
-            <div class="stage-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-4 text-xl">
-                    <i class="fas fa-pills"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800">Stage Two</h3>
-                <p class="text-sm text-gray-500 mb-4">Pharmacology, Adult Health, & Microbiology.</p>
-                <div class="w-full bg-gray-100 h-2 rounded-full">
-                    <div class="bg-green-500 h-2 rounded-full w-0"></div>
-                </div>
-                <p class="text-xs mt-2 text-gray-400">Not Started</p>
-            </div>
-
-            <!-- Stage 3 -->
-            <div class="stage-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-4 text-xl">
-                    <i class="fas fa-baby"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800">Stage Three</h3>
-                <p class="text-sm text-gray-500 mb-4">Pediatrics, Maternity, & Mental Health.</p>
-                <div class="w-full bg-gray-100 h-2 rounded-full">
-                    <div class="bg-purple-500 h-2 rounded-full w-0"></div>
-                </div>
-                <p class="text-xs mt-2 text-gray-400">Not Started</p>
-            </div>
-
-            <!-- Stage 4 -->
-            <div class="stage-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
-                <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4 text-xl">
-                    <i class="fas fa-user-md"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800">Stage Four</h3>
-                <p class="text-sm text-gray-500 mb-4">Critical Care, Leadership, & NCLEX Prep.</p>
-                <div class="w-full bg-gray-100 h-2 rounded-full">
-                    <div class="bg-red-500 h-2 rounded-full w-0"></div>
-                </div>
-                <p class="text-xs mt-2 text-gray-400">Not Started</p>
-            </div>
-
+        <!-- Action Button: Install -->
+        <div id="install-banner" class="hidden mb-6 bg-blue-600 text-white p-4 rounded-2xl flex justify-between items-center">
+            <p class="font-bold">ثبت التطبيق على هاتفك للوصول السريع!</p>
+            <button id="install-btn" class="bg-white text-blue-600 px-4 py-2 rounded-xl font-bold text-sm">تثبيت الآن</button>
         </div>
 
-        <!-- Featured Section (Questions) -->
-        <section class="mt-16">
-            <div class="flex justify-between items-end mb-6">
-                <div>
-                    <h2 class="text-2xl font-bold text-gray-900">Daily Practice</h2>
-                    <p class="text-gray-500">Test your knowledge with today's focus questions.</p>
-                </div>
-                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700">Enter Question Bank</button>
-            </div>
-            
-            <div class="bg-white border border-blue-100 rounded-3xl p-8 flex flex-col md:flex-row items-center">
-                <div class="md:w-2/3">
-                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Question of the day</span>
-                    <h3 class="text-xl font-semibold mt-4 text-gray-800">A patient presents with a potassium level of 6.2 mEq/L. Which ECG change would the nurse expect to observe?</h3>
-                    <div class="mt-6 space-y-3">
-                        <button class="w-full text-left p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition">A. ST-segment depression</button>
-                        <button class="w-full text-left p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition">B. Tall, peaked T-waves</button>
+        <header class="mb-10 text-right">
+            <h1 class="text-3xl font-extrabold text-gray-900">أهلاً بك ممرض المستقبل 👋</h1>
+            <p class="text-gray-500">اختر مرحلتك الدراسية للبدء</p>
+        </header>
+
+        <!-- Stages -->
+        <div class="grid grid-cols-1 gap-6">
+            <div class="stage-card bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">المرحلة الأولى</h3>
+                        <p class="text-sm text-gray-500">أساسيات التمريض والتشريح</p>
                     </div>
-                </div>
-                <div class="md:w-1/3 flex justify-center mt-10 md:mt-0">
-                    <img src="https://illustrations.popsy.co/blue/doctor-examining-a-patient.svg" class="w-64 h-64" alt="Doctor Illustration">
+                    <div class="text-blue-600 bg-blue-50 p-3 rounded-2xl"><i class="fas fa-book-medical fa-2x"></i></div>
                 </div>
             </div>
-        </section>
+            <!-- Add more stages similarly -->
+        </div>
 
     </main>
 
+    <script>
+        // Logic to show a manual "Install" button
+        let deferredPrompt;
+        const installBanner = document.getElementById('install-banner');
+        const installBtn = document.getElementById('install-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBanner.classList.remove('hidden');
+        });
+
+        installBtn.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        installBanner.classList.add('hidden');
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
