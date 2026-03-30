@@ -19,7 +19,15 @@
                 <option value="3">Stage Three</option>
                 <option value="4">Stage Four</option>
             </select>
-
+            
+<!-- Category Selection -->
+<div>
+    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Content Category</label>
+    <select id="category" class="w-full p-4 bg-gray-50 rounded-xl border-none outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="lecture">Standard Lecture</option>
+        <option value="ministry">Ministry Question / Exam</option>
+    </select>
+</div>
             <input type="text" id="subject" placeholder="Subject (e.g. Anatomy)" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border-none">
             <input type="text" id="title" placeholder="Lecture Title" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border-none">
             <input type="text" id="videoUrl" placeholder="YouTube Video Link" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 border-none">
@@ -59,6 +67,7 @@
             e.preventDefault();
             
             const stage = document.getElementById('stage').value;
+         const category =  document.getElementById('category').value;
             const subject = document.getElementById('subject').value;
             const title = document.getElementById('title').value;
             const videoUrl = document.getElementById('videoUrl').value;
