@@ -116,16 +116,80 @@
         </div>
 
         <!-- Question of the Day Section -->
-        <section class="mt-20">
-            <div class="flex justify-between items-end mb-8">
-                <div>
-                    <h2 class="text-2xl font-extrabold text-gray-900">سؤال التحدي اليومي</h2>
-                    <p class="text-gray-500 mt-1">اختبر معلوماتك السريرية واحصل على نقاط إضافية.</p>
+        <section id="q-section" class="mt-20">
+    <div class="flex justify-between items-end mb-8">
+        <div>
+            <h2 class="text-2xl font-extrabold text-gray-900">سؤال التحدي اليومي</h2>
+            <p class="text-gray-500">اختبر معلوماتك واحصل على الإجابة الصحيحة فوراً</p>
+        </div>
+    </div>
+    
+    <div id="q-container" class="bg-white border border-blue-100 rounded-[2.5rem] p-10 shadow-sm transition-all duration-500">
+        <p class="text-center text-gray-400 py-10">جاري تحميل سؤال اليوم...</p>
+    </div>
+</section>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = { /* YOUR CONFIG */ };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function loadDailyQuestion() {
+        // Fetch the newest question
+        const q = query(collection(db, "dailyQuestions"), orderBy("createdAt", "desc"), limit(1));
+        const snapshot = await getDocs(q);
+        const container = document.getElementById('q-container');
+
+        if (snapshot.empty) {
+            container.innerHTML = "لا يوجد سؤال متاح حالياً.";
+            return;
+        }
+
+        const data = snapshot.docs[0].data();
+        
+        container.innerHTML = `
+            <div class="text-right">
+                <span class="bg-blue-600 text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">سؤال اليوم</span>
+                <h3 class="text-2xl font-bold mt-6 text-gray-800 leading-snug">${data.question}</h3>
+                
+                <div class="mt-8 grid grid-cols-1 gap-4">
+                    <button onclick="answerClicked('A', '${data.correct}', '${data.rationale}')" id="btn-A" class="choice-btn text-right p-5 rounded-2xl border border-gray-100 bg-white hover:border-blue-500 transition font-bold text-gray-700 font-bold">أ. ${data.optionA}</button>
+                    <button onclick="answerClicked('B', '${data.correct}', '${data.rationale}')" id="btn-B" class="choice-btn text-right p-5 rounded-2xl border border-gray-100 bg-white hover:border-blue-500 transition font-bold text-gray-700 font-bold">ب. ${data.optionB}</button>
                 </div>
-                <button class="bg-blue-600 text-white px-8 py-3 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                    دخول بنك الأسئلة
-                </button>
+
+                <div id="rationale-box" class="hidden mt-8 p-6 rounded-2xl animate-fade-in border-2">
+                    <h4 id="result-text" class="font-bold text-lg mb-2"></h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">${data.rationale}</p>
+                </div>
             </div>
+        `;
+    }
+
+    window.answerClicked = (choice, correct, rationale) => {
+        const rationaleBox = document.getElementById('rationale-box');
+        const resultText = document.getElementById('result-text');
+        
+        // Disable all buttons
+        document.querySelectorAll('.choice-btn').forEach(btn => btn.disabled = true);
+
+        if (choice === correct) {
+            document.getElementById('btn-' + choice).classList.add('bg-green-50', 'border-green-500', 'text-green-700');
+            resultText.innerText = "✅ إجابة صحيحة! أحسنت";
+            rationaleBox.classList.add('bg-green-50', 'border-green-200');
+        } else {
+            document.getElementById('btn-' + choice).classList.add('bg-red-50', 'border-red-500', 'text-red-700');
+            document.getElementById('btn-' + correct).classList.add('bg-green-50', 'border-green-500', 'text-green-700');
+            resultText.innerText = "❌ إجابة خاطئة، حاول مرة أخرى غداً";
+            rationaleBox.classList.add('bg-red-50', 'border-red-200');
+        }
+
+        rationaleBox.classList.remove('hidden');
+    }
+
+    loadDailyQuestion();
             
             <div class="bg-gradient-to-l from-white to-blue-50 border border-blue-100 rounded-[2rem] p-10 flex flex-col md:flex-row items-center">
                 <div class="md:w-2/3 text-right">
