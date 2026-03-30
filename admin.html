@@ -65,31 +65,7 @@
         </button>
     </form>
 </div>
-
-<script type="module">
-    // ... your existing imports ...
-    import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-    // ... your existing config ...
-
-    const qForm = document.getElementById('qForm');
-    qForm.onsubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await addDoc(collection(db, "dailyQuestions"), {
-                question: document.getElementById('qText').value,
-                optionA: document.getElementById('optA').value,
-                optionB: document.getElementById('optB').value,
-                correct: document.getElementById('correctOpt').value,
-                rationale: document.getElementById('rationale').value,
-                createdAt: new Date()
-            });
-            alert("Question Updated Successfully!");
-            qForm.reset();
-        } catch (err) { alert(err.message); }
-    };
-</script>
-
+    
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -136,6 +112,7 @@
                 alert("Error: " + err.message);
             }
         };
+
     </script>
 </body>
 </html>
