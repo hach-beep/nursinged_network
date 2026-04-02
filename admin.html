@@ -89,7 +89,7 @@
       uploadForm.onsubmit = async (e) => {
           e.preventDefault();
           try {
-              await addDoc(collection(db, "data"), {
+              await addDoc(collection(db, "lecture"), {
                   stage: document.getElementById('stage').value,
                   category: document.getElementById('category').value,
                   subject: document.getElementById('subject').value,
